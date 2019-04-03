@@ -2,12 +2,12 @@ class Api::V1::NursesController < ApplicationController
 
   def index
       @nurses=Nurse.all
-      render json: @nurses, :include => [:shifts]
+      render json: @nurses 
     end
 
     def show
       @nurse = get_nurse
-      render json: @nurse, :include => [:shifts]
+      render json: @nurse
     end
 
     def create

@@ -5,4 +5,6 @@ class Nurse < ApplicationRecord
   has_many :units, through: :shifts
   has_many :residents, through: :units
 
+  accepts_nested_attributes_for :shifts, allow_destroy: true
+
 end
