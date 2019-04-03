@@ -2,11 +2,12 @@ class Api::V1::NursesController < ApplicationController
 
   def index
       @nurses=Nurse.all
-      render json: @nurses, :include => [:residents]
+      render json: @nurses 
     end
 
     def show
       @nurse = get_nurse
+      render json: @nurse
     end
 
     def create
@@ -21,7 +22,7 @@ class Api::V1::NursesController < ApplicationController
 
     private
     def get_nurse
-      @nurse=Nurse.find(params[:id])
+      @nurse = Nurse.find(params[:id])
     end
 
     def nurse_params
