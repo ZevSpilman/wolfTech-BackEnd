@@ -1,8 +1,8 @@
-class ShiftController < ApplicationController
+class Api::V1::ShiftsController < ApplicationController
 
   def index
-      @shifts=Shift.all
-      render json: @shifts
+      @shifts = Shift.all
+      render json: @shifts, :include => [:unit]
     end
 
     def show
@@ -21,7 +21,7 @@ class ShiftController < ApplicationController
 
     private
     def get_shift
-      @shift=Shift.find(params[:id])
+      @shift = Shift.find(params[:id])
     end
 
     def shift_params
