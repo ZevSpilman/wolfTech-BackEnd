@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_02_212934) do
+ActiveRecord::Schema.define(version: 2019_04_03_171807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,13 +37,6 @@ ActiveRecord::Schema.define(version: 2019_04_02_212934) do
     t.string "variation"
   end
 
-  create_table "assignments", force: :cascade do |t|
-    t.integer "nurse_id"
-    t.integer "resident_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "nurses", force: :cascade do |t|
     t.string "name"
     t.string "contract"
@@ -58,6 +51,22 @@ ActiveRecord::Schema.define(version: 2019_04_02_212934) do
     t.integer "age"
     t.string "allergies"
     t.string "medications"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "unit_id"
+  end
+
+  create_table "shifts", force: :cascade do |t|
+    t.integer "unit_id"
+    t.integer "nurse_id"
+    t.string "time_in"
+    t.string "time_out"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "units", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

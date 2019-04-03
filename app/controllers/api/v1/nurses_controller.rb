@@ -2,7 +2,7 @@ class Api::V1::NursesController < ApplicationController
 
   def index
       @nurses=Nurse.all
-      render json: @nurses, :include => [ :residents]
+      render json: @nurses, :include => [:residents]
     end
 
     def show
