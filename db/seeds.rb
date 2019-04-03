@@ -13,17 +13,21 @@ Nurse.create(name: "Shuki", contract: "through 2020", emergency_contact: "Yep, 9
 
 
 
-Resident.create(name: "Ugly", age: 89, allergies: "Dairy", medications: "Lactaid")
-Resident.create(name: "Annoying", age: 90, allergies: "Bees", medications: "Aderall")
-Resident.create(name: "Howard", age: 79, allergies: "Basically Everything", medications: "Stool Softener")
-Resident.create(name: "Drawhod", age: 85, allergies: "Dairy", medications: "Honey")
-Resident.create(name: "Alex", age: 33, allergies: "Nuts", medications: "Crack")
+Resident.create(name: "Ugly", age: 89, allergies: "Dairy", medications: "Lactaid", unit_id: 1)
+Resident.create(name: "Annoying", age: 90, allergies: "Bees", medications: "Aderall", unit_id: 1)
+Resident.create(name: "Howard", age: 79, allergies: "Basically Everything", medications: "Stool Softener", unit_id: 2)
+Resident.create(name: "Drawhod", age: 85, allergies: "Dairy", medications: "Honey", unit_id: 2)
+Resident.create(name: "Alex", age: 33, allergies: "Nuts", medications: "Crack", unit_id: 3)
 
-Assignment.create(nurse_id: 1, resident_id: 1)
-Assignment.create(nurse_id: 2, resident_id: 2)
-Assignment.create(nurse_id: 3, resident_id: 2)
-Assignment.create(nurse_id: 4, resident_id: 4)
-Assignment.create(nurse_id: 4, resident_id: 5)
+Unit.create(name:"A")
+Unit.create(name:"B")
+Unit.create(name:"C")
+Unit.create(name:"D")
+
+Shift.create(unit_id: 1, nurse_id: 4, time_in: "10:00 AM", time_out: "5:00 PM")
+Shift.create(unit_id: 2, nurse_id: 3, time_in: "10:00 AM", time_out: "5:00 PM")
+Shift.create(unit_id: 3, nurse_id: 2, time_in: "10:00 AM", time_out: "5:00 PM")
+Shift.create(unit_id: 4, nurse_id: 1, time_in: "10:00 AM", time_out: "5:00 PM")
 
 
 Appointment.create(time: DateTime.now, resident_id: 1)
