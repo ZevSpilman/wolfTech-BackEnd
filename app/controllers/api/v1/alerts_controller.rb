@@ -2,11 +2,12 @@ class Api::V1::AlertsController < ApplicationController
 
   def index
       @alerts=Alert.all
-      render json: @alerts
+      render json: @alerts, :include => [:nurse]
     end
 
     def show
       @alert = get_alert
+      render json: @alert, :include => [:nurse]
     end
 
     def create
@@ -25,7 +26,7 @@ class Api::V1::AlertsController < ApplicationController
     end
 
     def alert_params
-      params.require(:alert).permit(:message, :admin_id, :nurse_id)
+      params.require(:alert).permit(:message, :admin_id, :nurse_id, :resolved)
     end
 
 end
