@@ -7,6 +7,7 @@ class Api::V1::ShiftsController < ApplicationController
 
     def show
       @shift = get_shift
+      render json: @shift, :include => [:unit]
     end
 
     def create

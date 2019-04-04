@@ -33,4 +33,4 @@ Appointment.create(time: DateTime.now, resident_id: 1)
 
 Admin.create(name: "Zev")
 
-Alert.create(message: "Help!! neeed more staff", admin_id: 1, nurse_id: 1)
+Alert.create(message: "Help!! neeed more staff", admin_id: 1, nurse_id: 1, resolved: true)
