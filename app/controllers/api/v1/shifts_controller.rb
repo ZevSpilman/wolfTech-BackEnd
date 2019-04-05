@@ -2,12 +2,12 @@ class Api::V1::ShiftsController < ApplicationController
 
   def index
       @shifts = Shift.all
-      render json: @shifts, :include => [:unit]
+      render json: @shifts
     end
 
     def show
       @shift = get_shift
-      render json: @shift, :include => [:unit]
+      render json: @shift
     end
 
     def create

@@ -20,7 +20,13 @@ Resident.create(name: "Ugly", age: 89, allergies: "Dairy", medications: "Lactaid
 Resident.create(name: "Annoying", age: 90, allergies: "Bees", medications: "Aderall", unit_id: 1)
 Resident.create(name: "Howard", age: 79, allergies: "Basically Everything", medications: "Stool Softener", unit_id: 2)
 Resident.create(name: "Drawhod", age: 85, allergies: "Dairy", medications: "Honey", unit_id: 2)
-Resident.create(name: "Alex", age: 33, allergies: "Nuts", medications: "Crack", unit_id: 3)
+Resident.create(name: "man", age: 33, allergies: "Nuts", medications: "Crack", unit_id: 1)
+Resident.create(name: "lady", age: 78, allergies: "Pickles", medications: "Crack", unit_id: 4)
+Resident.create(name: "person", age: 87, allergies: "Chicken Parm", medications: "Crack", unit_id: 4)
+Resident.create(name: "Zombie", age: 100, allergies: "Death", medications: "Crack", unit_id: 4)
+Resident.create(name: "Mummy", age: 67, allergies: "Nuts", medications: "Crack", unit_id: 3)
+Resident.create(name: "Dragon", age: 70, allergies: "Poison", medications: "Crack", unit_id: 3)
+Resident.create(name: "Faceless", age: 69, allergies: "Acid", medications: "Crack", unit_id: 3)
 
 
 Shift.create(unit_id: 1, nurse_id: 4, time_in: "10:00 AM", time_out: "5:00 PM")
@@ -28,8 +34,6 @@ Shift.create(unit_id: 2, nurse_id: 3, time_in: "10:00 AM", time_out: "5:00 PM")
 Shift.create(unit_id: 3, nurse_id: 2, time_in: "10:00 AM", time_out: "5:00 PM")
 Shift.create(unit_id: 4, nurse_id: 1, time_in: "10:00 AM", time_out: "5:00 PM")
 
-
-Appointment.create(time: DateTime.now, resident_id: 1)
 
 Admin.create(name: "Zev")
 
