@@ -2,7 +2,7 @@ class Api::V1::AppointmentsController < ApplicationController
 
   def index
       @appointments=Appointment.all
-      render json: @appointments
+      render json: @appointments, :include => [:resident]
     end
 
     def show
@@ -25,7 +25,7 @@ class Api::V1::AppointmentsController < ApplicationController
     end
 
     def appointment_params
-      params.require(:appointment).permit(:resident_id, :time, :variation)
+      params.require(:appointment).permit(:resident_id, :time, :variation, :duration)
     end
 
 end

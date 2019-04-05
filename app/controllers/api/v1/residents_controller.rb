@@ -7,6 +7,7 @@ class Api::V1::ResidentsController < ApplicationController
 
     def show
       @resident = get_resident
+      render json @resident
     end
 
     def create
