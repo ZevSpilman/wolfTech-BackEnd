@@ -11,7 +11,10 @@ class Api::V1::AlertsController < ApplicationController
     end
 
     def create
-      @alert = Alert.create(alert_params)
+      @alert = Alert.new(alert_params)
+      if @alert.save
+        ActionCable.server.broadcast('alerts', @alert)
+      end
       render json: @alert
     end
 
