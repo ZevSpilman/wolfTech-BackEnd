@@ -1,3 +1,3 @@
 class ResidentSerializer < ActiveModel::Serializer
-  attributes :id,:unit_id, :name,  :allergies, :medications, :appointments
+  attributes :id, :name, :allergies, :medications, :unit, :appointments
 end
