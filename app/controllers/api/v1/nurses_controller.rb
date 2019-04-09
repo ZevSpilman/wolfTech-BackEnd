@@ -2,7 +2,7 @@ class Api::V1::NursesController < ApplicationController
 
   def index
       @nurses=Nurse.all
-      render json: @nurses 
+      render json: @nurses
     end
 
     def show
@@ -11,8 +11,15 @@ class Api::V1::NursesController < ApplicationController
     end
 
     def create
-      @nurse = Nurse.create(nurse_params)
-      render json: @nurse
+      byebug
+      @nurse = Nurse.new(nurse_params)
+      if @user.save
+        # JWT.encode(payload, 'secret')
+  			jwt = encode_token({user_id: user.id})
+  			render json: {user: UserSerializer.new(user), jwt: jwt}
+  		else
+  			render json: {errors: user.errors.full_messages}
+  		end
     end
 
     def update
