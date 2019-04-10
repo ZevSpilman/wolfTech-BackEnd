@@ -5,11 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Nurse.create(name: "Bob", contract: "through 2020", emergency_contact: "Nancy, 917-443-9878", logged_in: true)
-Nurse.create(name: "Andrew", contract: "through 2020", emergency_contact: "Peter, 917-443-9878", logged_in: false)
-Nurse.create(name: "Kevin", contract: "through 2020", emergency_contact: "Face, 917-443-9878", logged_in: true)
-Nurse.create(name: "Sam", contract: "through 2020", emergency_contact: "Man, 917-443-9878", logged_in: false)
-Nurse.create(name: "Shuki", contract: "through 2020", emergency_contact: "Yep, 917-443-9878", logged_in: false)
+Nurse.create(name: "Bob", contract: "through 2020", emergency_contact: "Nancy, 917-443-9878", logged_in: true, password_digest: BCrypt::Password.create('password'))
+Nurse.create(name: "Andrew", contract: "through 2020", emergency_contact: "Peter, 917-443-9878", logged_in: false, password_digest: BCrypt::Password.create('password'))
+Nurse.create(name: "Kevin", contract: "through 2020", emergency_contact: "Face, 917-443-9878", logged_in: true, password_digest: BCrypt::Password.create('password'))
+Nurse.create(name: "Sam", contract: "through 2020", emergency_contact: "Man, 917-443-9878", logged_in: false, password_digest: BCrypt::Password.create('password'))
+Nurse.create(name: "Shuki", contract: "through 2020", emergency_contact: "Yep, 917-443-9878", logged_in: false, password_digest: BCrypt::Password.create('password'))
 
 Unit.create(name:"A")
 Unit.create(name:"B")

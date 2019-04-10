@@ -11,14 +11,16 @@ class Api::V1::NursesController < ApplicationController
     end
 
     def create
-      byebug
-      @nurse = Nurse.new(nurse_params)
-      if @user.save
+      @nurse = Nurse.new(
+        name: params[:name],
+        password: params[:password],
+      )
+      if @nurse.save
         # JWT.encode(payload, 'secret')
-  			jwt = encode_token({user_id: user.id})
-  			render json: {user: UserSerializer.new(user), jwt: jwt}
+  			jwt = encode_token({nurse_id: @nurse.id})
+  			render json: {nurse: NurseSerializer.new(@nurse), jwt: jwt}
   		else
-  			render json: {errors: user.errors.full_messages}
+  			render json: {errors: @nurse.errors.full_messages}
   		end
     end
 
@@ -33,7 +35,7 @@ class Api::V1::NursesController < ApplicationController
     end
 
     def nurse_params
-      params.require(:nurse).permit(:name, :contract, :emergency_contact, :logged_in, :residents)
+      params.require(:nurse).permit(:name, :password_digest)
     end
 
 end

@@ -7,7 +7,7 @@ class Nurse < ApplicationRecord
 
   accepts_nested_attributes_for :shifts, allow_destroy: true
 
-  validates :username, uniqueness: true
+  validates :name, uniqueness: true
 	has_secure_password
 
 end
