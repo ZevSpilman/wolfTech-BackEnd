@@ -4,6 +4,8 @@ class AlertChannel < ApplicationCable::Channel
   end
 
   def unsubscribed
-  puts "hello world"
+  puts "unsub"
+   x = Feed.find(params[:id])
+   x.unsubscribe()
   end
 end
