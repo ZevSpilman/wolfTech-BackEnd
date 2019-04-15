@@ -23,6 +23,10 @@ class Api::V1::AlertsController < ApplicationController
       render json: @alert
     end
 
+    def destroy
+      @alert = get_alert.destroy
+    end
+
     private
     def get_alert
       @alert=Alert.find(params[:id])

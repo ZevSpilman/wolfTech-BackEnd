@@ -2,7 +2,7 @@ class Api::V1::NursesController < ApplicationController
 
   def index
       @nurses=Nurse.all
-      render json: @nurses 
+      render json: @nurses
     end
 
     def show
@@ -11,8 +11,17 @@ class Api::V1::NursesController < ApplicationController
     end
 
     def create
-      @nurse = Nurse.create(nurse_params)
-      render json: @nurse
+      @nurse = Nurse.new(
+        name: params[:name],
+        password: params[:password],
+      )
+      if @nurse.save
+        # JWT.encode(payload, 'secret')
+  			jwt = encode_token({nurse_id: @nurse.id})
+  			render json: {nurse: NurseSerializer.new(@nurse), jwt: jwt}
+  		else
+  			render json: {errors: @nurse.errors.full_messages}
+  		end
     end
 
     def update
@@ -26,7 +35,7 @@ class Api::V1::NursesController < ApplicationController
     end
 
     def nurse_params
-      params.require(:nurse).permit(:name, :contract, :emergency_contact, :logged_in, :residents)
+      params.require(:nurse).permit(:name, :password_digest)
     end
 
 end
